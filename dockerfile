@@ -1,11 +1,13 @@
-# Step 1: Build the Vite project
-FROM node:18 AS builder
+# Step 1: Build the Vite project using Bun
+FROM oven/bun AS builder
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY package.json package-lock.json ./
+# Copy package.json and bun.lockb
+COPY package.json bun.lockb ./
+
+# Install dependencies using Bun
 RUN bun install --frozen-lockfile
 
 # Copy the rest of the project files
